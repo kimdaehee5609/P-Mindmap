@@ -1,0 +1,848 @@
+\documentclass[12pt,a4paper,oneside]{book}
+
+% --------------------------------- 페이지 스타일 지정
+	\usepackage{geometry}
+	\geometry{top=1.4in}
+	\geometry{bottom=1.4in}
+	\geometry{left=1.2in}
+	\geometry{right=1.2in}
+	\geometry{headheight=0.4in}
+	\geometry{headsep=0.1in}
+	\geometry{footskip=0.3in}
+%	\geometry{showframe}
+	
+	\newgeometry{ 	top=8em, bottom=8em,
+					left=8em, right=8em, 
+					headheight=2em, headsep=2em}
+
+
+%		\usepackage[hangul]{kotex}				% 한글 사용
+		\usepackage{kotex}						% 한글 사용
+		\usepackage[unicode]{hyperref}			% 한굴 하이퍼링크 사용
+		\usepackage{amssymb,amsfonts,amsmath}% 수학 수식 사용
+		\usepackage{scrextend}					% 
+		
+		
+		\usepackage{enumerate}			%
+		\usepackage{enumitem}			%
+		\usepackage{longtable}			%
+
+		\usepackage{pifont}				%
+		\usepackage{setspace}			%
+		\usepackage{booktabs}			% table
+		\usepackage{color}				%
+		\usepackage{multirow}			%
+		\usepackage{boxedminipage}		% 미니 페이지
+		\usepackage[pdftex]{graphicx}	% 그림 사용
+		\usepackage[final]{pdfpages}	%pdf 사용
+		\usepackage{framed}			%pdf 사용
+		
+		\usepackage{fix-cm}	
+		\usepackage[english]{babel}
+
+		\usepackage{tikz}%
+		\usetikzlibrary{arrows,positioning,shapes}
+		%\usetikzlibrary{positioning}
+		
+		\usepackage{blindtext}
+
+
+
+
+
+% --------------------------------- 페이지 스타일 지정
+
+	\usepackage[Bjornstrup]{fncychap}
+
+	\usepackage{fancyhdr}
+	\pagestyle{fancy}
+	\fancyhead{} % clear all fields
+	\fancyhead[LO]{\tiny \leftmark}
+	\fancyhead[RE]{\tiny \leftmark}
+	\fancyfoot{} % clear all fields
+	\fancyfoot[LE,RO]{\large \thepage}
+	%\fancyfoot[CO,CE]{\empty}
+	\renewcommand{\headrulewidth}{1.0pt}
+	\renewcommand{\footrulewidth}{0.4pt}
+	
+	
+	
+% --------------------------------- section 스타일 지정
+
+	\usepackage{titlesec}
+	
+	\titleformat*{\section}{\large\bfseries}
+	\titleformat*{\subsection}{\normalsize\bfseries}
+	\titleformat*{\subsubsection}{\normalsize\bfseries}
+	\titleformat*{\paragraph}{\normalsize\bfseries}
+	\titleformat*{\subparagraph}{\normalsize\bfseries}
+
+	\renewcommand{\thesection}{\arabic{section}.}
+	\renewcommand{\thesubsection}{\thesection\arabic{subsection}.}
+	\renewcommand{\thesubsubsection}{\thesubsection\arabic{subsubsection}}
+	
+	\titlespacing*{\section} 		{0pt}{0.0em}{0.0em}
+	\titlespacing*{\subsection}	  	{0ex}{0.0em}{0.0em}
+	\titlespacing*{\subsubsection}	{0ex}{0.0em}{0.0em}
+	\titlespacing*{\paragraph}		{0ex}{2.0em}{2.0em}
+	\titlespacing*{\subparagraph}	{0ex}{0.0em}{0.0em}
+
+%	\titlespacing*{\section} 		{0pt}{0.0\baselineskip}{0.0\baselineskip}
+%	\titlespacing*{\subsection}	  	{0ex}{0.0\baselineskip}{0.0\baselineskip}
+%	\titlespacing*{\subsubsection}	{6ex}{0.0\baselineskip}{0.0\baselineskip}
+%	\titlespacing*{\paragraph}		{6pt}{0.0\baselineskip}{0.0\baselineskip}
+	
+	
+% ----------------------------- 장의 목차
+\usepackage{minitoc}
+	\setcounter{minitocdepth}{1}    	% Show until subsubsections in minitoc
+	\setlength{\mtcindent}{12pt} 	% default 24pt
+	
+	
+% --------------------------------- 문서 기본 사항 설정
+		\setcounter{secnumdepth}{3} % 문단 번호 깊이
+		\setcounter{tocdepth}{3} % 문단 번호 깊이
+		\setlength{\parindent}{0cm} % 문서 들여 쓰기를 하지 않는다.
+		\doublespace
+
+% --------------------------------- recoment
+		\renewcommand{\labelitemi}{$\bullet$}
+		\renewcommand{\labelitemii}{$\cdot$}
+		\renewcommand{\labelitemiii}{$\diamond$}
+		\renewcommand{\labelitemiv}{$\ast$}		
+	
+% ------------------------------------------------------- enumi setting
+%		\renewcommand{\labelenumi}{\arabic{enumi}.} 
+%		\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
+		\renewcommand{\labelenumii}{(\arabic{enumii})}
+		\renewcommand{\labelenumiii}{\arabic{enumiii})}
+%		\setlist{itemsep=0.0em}
+		\setlist[enumerate,1]{labelindent=0.0em,leftmargin=8.0ex,rightmargin=2.0em,}
+		\setlist[enumerate,2]{labelindent=0.0em,leftmargin=4.0ex,rightmargin=2.0em,}
+		\setlist[enumerate,3]{labelindent=0.0em,leftmargin=3.0ex,rightmargin=2.0em,}
+%		\setlist[enumerate,1]{label=\arabic*., ref=\arabic*}
+%		\setlist[enumerate,2]{label=\emph{\alph*}),ref=\theenumi.\emph{\alph*}}
+%		\setlist[enumerate,3]{label=\roman*), ref=\theenumii.\roman*}
+
+% --------------------------------- recoment
+
+	\newcommand{\red}{\color{red}}			% 글자 색깔 지정
+	\newcommand{\blue}{\color{blue}}		% 글자 색깔 지정
+	\newcommand{\black}{\color{black}}		% 글자 색깔 지정
+	\newcommand{\superscript}[1]{${}^{#1}$}
+	
+	
+% --------------------------------- 환경 정의 : 박스 치고 안의 글자 빨간색
+
+			\newenvironment{BoxRedText}
+			{ 	\setlength{\fboxsep}{12pt}
+				\begin{boxedminipage}[c]{1.0\linewidth}
+				\color{red}
+			}
+			{ 	\end{boxedminipage} 
+				\color{black}
+			}
+			
+%		\setmainhangulfont[BoldFont=HY견고딕]{한컴돋움}
+%		\setsanshangulfont{HY견고딕}
+%		\setmonohangulfont{한컴돋움}
+			
+			
+
+% ------------------------------------------------------------------------------
+% Begin document (Content goes below)
+% ------------------------------------------------------------------------------
+	\begin{document}
+	
+			\dominitoc
+			
+
+			\title{Aurodesk MAP}
+			\author{김대희}
+			\date{2015년 1월}
+			\maketitle
+
+
+			\tableofcontents
+			\listoffigures
+			\listoftables
+
+			
+
+
+
+% ========================================== part      ============
+	\part{실행단계 \\ Post-Syudy Phase}
+
+
+% ========================================== chapter ============
+\newpage
+\chapter{프로젝트 설정하기}
+
+	% -------------------------------------- page -------------------
+	%	\nomtcrule         		% removes rules = horizontal lines
+	%	\nomtcpagenumbers  % remove page numbers from minitocs
+		\newpage
+		\minitoc				% Creating an actual minitoc
+	%	\doublespace
+
+
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{프로젝트 사용하기}
+	
+	
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{프로젝트 이해하기}
+	
+	
+
+% ========================================== chapter ============
+\newpage
+\chapter{도면}
+
+
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{도면 세트 정의/수정}
+
+	
+% ========================================== chapter ============
+\newpage
+\chapter{질의}
+
+
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{질의 정의}
+	
+
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{질의 실행}
+	
+	
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{질의 라이버러리}
+	
+	
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{외부 질의 실행}
+	
+	
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{위상 질의 정의}
+	
+	위상 및 이와 연관된 데이터를 프로젝트나 부착된 도면에서 검색하거나, 
+	원시 도면에서 위상의 일부를 질의할 수 있고, 
+	위상을 구성하는 전체 객체를 검색할 필요없이 위상의 헤당 부분에 대해 작업하기 위하여 사용한다.
+	
+	
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{위상 질의 실행}
+	
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{위상 질의 라이버러리}
+	
+	
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{외브 위상 질의 실행}
+	
+
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{객체 주제도 질의}
+	
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{위상 주제도 질의}
+	
+	
+	
+
+
+	
+% ========================================== chapter ============
+\newpage
+\chapter{피쳐 분류}
+
+
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{피쳐 선택}
+	
+	
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{분류되지 않은 피쳐 선택}
+	
+
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{정의 되지 않은 피쳐 선택}
+	
+
+
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{객체 분류}
+	
+
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{객체 분류 취소}
+	
+
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{새정의 파일}
+	
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{정의 파일 첨부}
+	
+
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{피쳐 클래스 정의}
+	
+
+
+
+% ========================================== chapter ============
+\newpage
+\chapter{객체 데이터}
+
+
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{객체 데이터 정의}
+	
+	
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{객체 데이터 편집}
+	
+	
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{문서 뷰 정의}
+	
+	
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{연관된 문서 보기}
+	
+
+	
+% ========================================== chapter ============
+\newpage
+\chapter{데이터베이스}
+
+			
+
+% ========================================== chapter ============
+\newpage
+\chapter{데이터 입력}
+
+
+
+% ========================================== chapter ============
+\newpage
+\chapter{	COGO 명령}
+
+
+% ========================================== chapter ============
+\newpage
+\chapter{	이미지}
+
+
+% ========================================== chapter ============
+\newpage
+\chapter{	위상}
+
+
+
+% ========================================== chapter ============
+\newpage
+\chapter{	지도 세트 플롯}
+
+
+% ========================================== chapter ============
+\newpage
+\chapter{	주석}
+
+
+
+% ========================================== chapter ============
+\newpage
+\chapter{	도구}
+
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{도심 작성}
+	
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{도면 정비}
+	
+	
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{경계 끊기}
+	
+	
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{경계 자르기}
+	
+
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{객체 데이터를 데이터베이스 링크로 변환}
+	
+
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{가져오기}
+	
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{내보내기}
+	
+	
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{도면 세트 정의/수정}
+	
+	
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{Autodesk MapGuide로 내보내기}
+	
+
+
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{지구 좌표계 정의}
+	
+
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{지구 좌표계 지정}
+	
+
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{좌표 추적}
+	
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{측지 거리}
+	
+
+
+
+% ========================================== chapter ============
+\newpage
+\chapter{	유틸리티}
+
+
+	
+
+				
+% ========================================== chapter ============
+\newpage
+\chapter{피쳐 분류 사용하기}
+
+
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{피쳐 분류 개요}
+	
+	
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{피쳐 분류 설정하기}
+	
+	
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{객체 분류하기}
+	
+	
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{분류된 객체 선택하기}
+	
+	
+			
+% ========================================== chapter ============
+\newpage
+\chapter{좌표 형상 사용하기}
+
+
+
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{좌표 형상 개요}
+
+
+
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{좌표 형상을 사용하겨 점 지정하기}
+	
+	
+	% ------------------------------------------ section ------------ 
+	\newpage
+	\section{좌표 형상 측정하기}
+	
+
+
+
+% ========================================== part      ============
+	\part{예제 실습}
+
+
+% ========================================== chapter ============
+\newpage
+\chapter{도면 불러오기 및 도면 정비}
+
+
+	\newpage
+
+	\paragraph {1.} 
+	MAP을 구동한 후, Today 대화상자의 Open Drawing 탭에서 Browser를 클릭한다.
+	
+	\paragraph {2.} 
+	파일을 찾은 다음 \textbf{열}기 버튼을 클릭한다.
+
+	\paragraph {3.} 
+		
+	
+
+	\paragraph {4.} 
+	\textbf{View $>$ Zoom $>$ Extend}
+
+
+	\paragraph {5.} 
+
+						
+	\paragraph {6.} 
+	잘라낸 영역을 폴리라인으로 drawing 하기 위해 탑메뉴에서 \textbf{DRAW$>$Polyline}을 클릭한다.
+	
+	\paragraph {7.} 
+	화면상에서 다음 그림과 같이 \textbf{닫혀진 폴리라인}을 드로잉한다.
+	
+	\paragraph {8.} 
+	드로잉된 폴리라인을 기준으로 도면을 잘라내기 위해 탑메뉴에서 \textbf{Map$>$도구 $>$ 경계자르기}를 클릭한다.
+	
+	\paragraph {9.} 
+	경계에서 객체 자르기 대화상자가 활성된다. 
+	대화상자의 경계 항목에서 경계 선택에 체크하고 \textbf{정의} 버튼을 클릭한 후, 드로잉한 폴리라인을 선택한다.
+	
+	\paragraph {10.} 
+	자동객체 항목에서 \textbf{자동선택}과 \textbf{선택된 객체 필터}에 체크한 다음, 
+	\textbf{도면층} 버튼을 클릭한다.
+	
+	\paragraph {11.} 
+	활성화된 선택 대화상자에 나타난 모든 레이어를 선택환 다음 \textbf{확인} 버튼을 누른다.
+	
+	\paragraph {12.} 
+	자르기 방법 항목에서 \textbf{경계 외부에서 자르기}에 케크한 다음, 
+	\textbf{지울수 없는 객체의 무시} 항목에 체크한다.
+	
+	\paragraph {13.} 
+	대화상자 하단의 \textbf{확인} 버튼을 누르면, 그림과 같이 경고창이 나타난다. 
+	\textbf{예} 버튼을 누른다.
+	
+	\paragraph {14.} 
+	다름 그림과 같이 그려진 폴리라인을 경계로 모든 객체들이 잘려나간다.
+	
+	\paragraph {15.} 
+	경계로 삼았던 폴리라인을 선택하여 지운다.
+	
+	\paragraph {16.} 
+	이번에는 다음 그림과 같이 블럭의 안쪽으로 폴리라인을 그린다. (자를 경계를 정의하기 위한 것이다)
+	
+	\paragraph {17.} 
+	탑메뉴에서 \textbf{Map $>$ 경계 $>$ 경계자르기} 를 클릭한다.
+	
+	\paragraph {18.} 
+	활성화된 경계에서 객체 자르기 대화상자에서 앞의 과정과 동일한 방법으로 다음 그림과 같이 설정한 후, 
+	확인 버튼을 누른다.
+
+	\paragraph {19.} 
+	경고 창에서 예 버튼을 클릭한다.
+	
+	\paragraph {20.} 
+	다음 그림과 같이 드로잉한 폴리라인 바깥쪽의 모든 객체가 잘려나간다.
+	
+	\paragraph {21.} 
+	다음 그림과 같이 경계로 사용된 폴리라인을 선택한 후 지운다.
+	
+	\paragraph {22.} 
+	한글 사용을 위해 탑메뉴에서 \textbf{Format $>$ Text Style}을 클릭한다.
+	
+	\paragraph {23.} 
+	문자 유형 대화상자의 글꼴이름 항목에서 \textbf{바탕}을 선택한다.
+	
+	\paragraph {24.} 
+	도면층특성관리자를 활성화 시킨다.
+	
+	\paragraph {25.} 
+	경계로 사용된 폴리라인을 선택한 후 지운다.
+	
+	
+	
+	
+	
+
+	
+	
+
+% ========================================== chapter ============
+\newpage
+\chapter{속성 블럭 작성 및 배치}
+
+	
+	\newpage
+	\begin{itemize}
+
+	\item	Map을 사용하여 부착된 도면과 조사 $ \cdot $ 정리된 데이타베이스 파일과의 링크를 위해서는 
+			먼저 속성 블럭을 작성하여야 한다.
+
+	\item	예제에서 사용되는 작업환경의 경우 
+			작성된 속성 블럭을 각 대지의 경계선 내부에 위치시켜 대지를 인식할 수 있는 고유의 ID적 성격을 부여할 것이며, 
+			이때  사용되는 ID는 현장조사를 통해 정리된 데이터베이스 파일의 ID 번호와 일치하도록 할것이다.
+
+	\end{itemize}
+
+
+		\begin{tikzpicture}
+	 		[node distance=1cm,>=latex',
+			 block/.style = {draw, 	shape=rectangle, align=center},
+             ]
+		             
+			\linespread{1.0}
+		    	\node [block]       		(00)   	{ATTDEF 명령어 실행};
+		    	\node [block, below=of 00] (10)  	{속성정의 (속성 고리표와 프로프트, 값 설정)};
+		    	\node [block, below=of 10] (20)     	{속성 삽입점, 문자유형 설정};
+		    	\node [block, below=of 20] (30)     	{도면에 속성 삽입};
+		    	\node [block, below=of 30] (40)     	{속성을 포함한 블록 작성};
+		    	\node [block, below=of 40] (50)     	{작성된 속성 블록 배치 (각 대지별)};
+		    	\node [block, below=of 50] (60)     	{다른 이름으로 저장};
+		    	
+			\draw[->] (00) -- (10);
+			\draw[->] (10) -- (20);
+			\draw[->] (20) -- (30);
+			\draw[->] (30) -- (40);
+			\draw[->] (40) -- (50);
+			\draw[->] (50) -- (60);
+
+	    \end{tikzpicture}
+
+
+	\newpage
+	\paragraph {1.} 
+	명령어 압력창 ATTDEF를 입력한 다음 Enter키를 누르면, 속성 정의 대화상자가 나타난다.
+
+	\paragraph {2.} 
+	속성정의 대화상자에서 속성을 정의한 후, 삽입점 항목의 점 선택 버튼을 클릭한다.
+
+	\paragraph {3.} 
+	커서의 위치를 클릭하면, 속성정의 대화상자의 삽입점 항목에 X, Y 좌표가 입력된다.
+
+	\paragraph {4.} 
+	문자 옵션에서 높이와 회전각도 등을 정의한다.
+
+	
+	\paragraph {5.} 
+	속성 정의 대화상자 하단의 확인 버튼을 누르면 삽입점에 꼬리표로 입력한 대지번호가 나타난다.
+
+
+	\paragraph {6.} 
+	꼬리표 대지번호를 블럭으로 정의하기 위해, 탑 메뉴에서 \textbf{Draw $>$ Block $>$ Make}을 클릭한다.
+
+
+	\paragraph {7.} 
+	활성화된 블록정의 대화상자의 이름 항목에 ID를 입력한다.
+
+
+	\paragraph {8.} 
+	삽입 기준점을 정의하기 위해 그림에 표시된 것은 \textbf{점 선택} 아이콘을 클릭한다.
+
+
+
+	\paragraph {9.} 
+	꼬리표 대지번호의 중앙점을 클릭한다. (블럭삽입 기준점을 정의하는 것이다)
+
+
+	\paragraph {10.} 
+	객체선택 아이콘을 클릭한다.
+
+
+
+	\paragraph {11.} 
+	꼬리표 대지번호를 선택한 후, 속성 정의 대화상자의 확인 버튼을 클릭한다.
+
+
+
+	\paragraph {12.} 
+	선택된 꼬리표 대지번호가 객체 옵션의 블록으로 변환 설정에 따라 곧바로 블럭으로 변경되면서 
+	속성 편집 대화상자가 나타나고 속성정의 대화상자에서 정의하였던 프로프트 대지번호를 입력하세요! 가 나타난다.
+
+
+	\paragraph {13.} 
+	임시 대지번호 9999를 입력한 다음, 확인버튼을 클릭한다.
+
+	\paragraph {14.} 
+	그림과 같이 입력된 대지번호 9999가 속성 블록으로 도면에 삽입된다.
+
+	\paragraph {15.} 
+	삽입된 속성블록 9999를 더블클릭하면, 속성편집기가 활성화된다. 
+	활성화된 대화상자의 값 항목에 나타난 대지번호 9999를 확인한다.
+
+	\paragraph {16.} 
+	값 항목에 새로운 대지번호 8888를 입력하면, 동시에 화면상에 새로운 대지번호가 나타나다. 확인을 누른다.
+
+	\paragraph {17.} 
+	작성된 속성블록을 인근 대지에 삽입하기 위해, 탑메뉴에서 Insert $>$ Block을 클릭한다.
+
+	\paragraph {18.} 
+	활성화된 대화상자의 찾아보기 버튼을 클릭한 후, 앞서 정의한 속성블록ID를 선택한 다음 확인 버튼을 누른다.
+
+	\paragraph {19.} 
+	화면상에 속성블럭의 위치를 정의하기 위해 커서가 위치한 부분(대지경계선의 아운데부분)을 클릭하면 
+	명령어 입력창에 대지번호를 입력하세요! 라는 프롬프트가 나타난다.
+
+	\paragraph {20.} 
+	대지번호를 입력하세요! 프롬프트에 7777을 입력한 후 Enter를 누른다.
+
+	\paragraph {21.} 
+	Insert를 이용하여 앞서 정의한 속성블럭을 삽입하는 방법 대신 이번에는 이미 삽입된 속성블럭을 복사해 보자.
+
+	\paragraph {22.} 
+	이상과 같은 2가지 방법을 사용하여 모든 대지경계선의 내부에 조사된 대지의 번호를 속성블럭을 사용하여 배치시킨다. 
+	(이때 대지번호 속성블럭을 신규 레이어명 ``대지ID''로 정의한다)
+
+	\paragraph {23.} 
+	대지번호 속성블럭 입력이 완료되면 Zoom Extend 시킨다.
+
+	\paragraph {24.} 
+	대지번호 속성블럭의 배치가 완료된 후, 그 결과를 저장하기 위해 탑메뉴에서 File $>$ Save As를 클릭한다.
+
+	\paragraph {25.} 
+	다른 이름으로 저장 대화상자의 파일이름 항목에 ``도심대지번호입력''을 입력한 후 저장버튼을 누른다.
+
+	\paragraph {26.} 
+	대지번호 속성블럭이 각 대지내부에 한개씩 배치가 완료되었고, 
+	이 작업 결과 역시 별도의 파일에 저장을 완료하였으므로 
+	탑메뉴에서 File $>$ Close 버큰을 클릭하여 다음 작업을 위해 현재 파일을 닫는다.
+
+
+
+
+
+
+% ========================================== chapter ============
+\newpage
+\chapter{도면 부착 및 부착된 도면 질의하기}
+
+	\newpage
+	\begin{itemize}
+	\item	준비된 도면을 Map 프로젝트 파일에 부착한 후, 조회하는 방법에 대해 알아보자
+
+	\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+% ========================================== chapter ============
+\newpage
+\chapter{외부 데이터베이스 파일 부착하기}
+
+
+
+
+% ========================================== chapter ============
+\newpage
+\chapter{SQL 구문 조회하기}
+
+
+% ========================================== chapter ============
+\newpage
+\chapter{다각형 위상(대지위상) 만들기 및 위상분석}
+
+
+% ========================================== chapter ============
+\newpage
+\chapter{공간 분석을 위한 위상주제도 작성 (대지용도 현황분석도 작성)}
+
+
+% ========================================== chapter ============
+\newpage
+\chapter{위상주제조회파일을 사용한 위상주제도 재작성}
+
+% ========================================== chapter ============
+\newpage
+\chapter{대지당 건축물 동수 현황분석도 작성하기}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% ------------------------------------------------------------------------------
+% End document
+% ------------------------------------------------------------------------------
+\end{document}
+
+

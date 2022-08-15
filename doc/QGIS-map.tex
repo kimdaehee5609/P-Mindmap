@@ -1,0 +1,336 @@
+%	-------------------------------------------------------------------------------
+% 
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%	-------------------------------------------------------------------------------
+
+	\documentclass[12pt, a3paper, landscape, oneside]{book}
+%	\documentclass[12pt, a4paper, oneside]{book}
+%	\documentclass[12pt, a4paper, landscape, oneside]{book}
+
+		% --------------------------------- 페이지 스타일 지정
+		\usepackage{geometry}
+%		\geometry{landscape=true	}
+		\geometry{top 		=10em}
+		\geometry{bottom		=10em}
+		\geometry{left		=8em}
+		\geometry{right		=8em}
+		\geometry{headheight	=4em} % 머리말 설치 높이
+		\geometry{headsep		=2em} % 머리말의 본문과의 띠우기 크기
+		\geometry{footskip		=4em} % 꼬리말의 본문과의 띠우기 크기
+% 		\geometry{showframe}
+	
+%		paperwidth 	= left + width + right (1)
+%		paperheight 	= top + height + bottom (2)
+%		width 		= textwidth (+ marginparsep + marginparwidth) (3)
+%		height 		= textheight (+ headheight + headsep + footskip) (4)
+
+
+
+		%	===================================================================
+		%	package
+		%	===================================================================
+%			\usepackage[hangul]{kotex}				% 한글 사용
+			\usepackage{kotex}					% 한글 사용
+			\usepackage[unicode]{hyperref}			% 한글 하이퍼링크 사용
+
+		% ------------------------------ 수학 수식
+			\usepackage{amssymb,amsfonts,amsmath}	% 수학 수식 사용
+			\usepackage{mathtools}				% amsmath 확장판
+
+
+
+		% ------------------------------ 
+			\usepackage{fix-cm}	
+			\usepackage[english]{babel}
+
+
+		% ------------------------------ table 
+			\usepackage{longtable}			%
+			\usepackage{tabularx}			%
+			\usepackage{tabu}				%
+
+
+
+		%	--------------------------------------------------------------------------------------- 
+		% 	tritlesec package
+		% 	
+		% 	
+		% 	------------------------------------------------------------------ section 스타일 지정
+	
+			\usepackage{titlesec}
+		
+		% 	----------------------------------------------------------------- section 글자 모양 설정
+			\titleformat*{\section}					{\large\bfseries}
+			\titleformat*{\subsection}				{\normalsize\bfseries}
+			\titleformat*{\subsubsection}			{\normalsize\bfseries}
+			\titleformat*{\paragraph}				{\normalsize\bfseries}
+			\titleformat*{\subparagraph}				{\normalsize\bfseries}
+
+			\titleformat{\section}   {\normalfont\large\bfseries}{\thesection}{4em}{}	
+	
+		% 	----------------------------------------------------------------- section 번호 설정
+			\renewcommand{\thepart}				{\arabic{part}.}
+			\renewcommand{\thesection}				{\arabic{section}.}
+			\renewcommand{\thesubsection}			{\thesection\arabic{subsection}.}
+			\renewcommand{\thesubsubsection}		{\thesubsection\arabic{subsubsection}}
+			\renewcommand\theparagraph 			{$\blacksquare$ \hspace{3pt}}
+
+		% 	----------------------------------------------------------------- section 페이지 나누기 설정
+			\let\stdsection\section
+			\renewcommand\section{\newpage\stdsection}
+
+
+
+		%	--------------------------------------------------------------------------------------- 
+		% 	\titlespacing*{commandi} {left} {before-sep} {after-sep} [right-sep]		
+		% 	left
+		%	before-sep		:  수직 전 간격
+		% 	after-sep	 	:  수직으로 후 간격
+		%	right-sep
+
+			\titlespacing*{\section} 				{0em}{1.0em}{1.0em}
+			\titlespacing*{\subsection}	  		{0ex}{1.0em}{1.0em}
+			\titlespacing*{\subsubsection}			{0ex}{1.0em}{1.0em}
+			\titlespacing*{\paragraph}			{0em}{1.5em}{1.0em}
+			\titlespacing*{\subparagraph}			{4em}{1.0em}{1.0em}
+	
+
+
+
+		%	--------------------------------------------------------------------------------------- 
+		% 	toc 설정  - table of contents
+		% 	
+		% 	
+		% 	----------------------------------------------------------------  문서 기본 사항 설정
+			\setcounter{secnumdepth}{5} 		% 문단 번호 깊이
+			\setcounter{tocdepth}{3} 			% 문단 번호 깊이 - 목차 출력시 출력 범위
+
+			\setlength{\parindent}{0cm} 		% 문서 들여 쓰기를 하지 않는다.
+
+
+		%	--------------------------------------------------------------------------------------- 
+		% 	mini toc 설정
+		% 	
+		% 	
+		% 	--------------------------------------------------------- 장의 목차  minitoc package
+			\usepackage{minitoc}
+
+			\setcounter{minitocdepth}{1}    	%  Show until subsubsections in minitoc
+%			\setlength{\mtcindent}{12pt} 	% default 24pt
+			\setlength{\mtcindent}{24pt} 	% default 24pt
+
+		% 	--------------------------------------------------------- part toc
+		%	\setcounter{parttocdepth}{2} 	%  default
+			\setcounter{parttocdepth}{0}
+		%	\setlength{\ptcindent}{0em}		%  default  목차 내용 들여 쓰기
+			\setlength{\ptcindent}{0em}         
+
+
+		% 	--------------------------------------------------------- section toc
+
+			\renewcommand{\ptcfont}{\normalsize\rm} 		%  default
+			\renewcommand{\ptcCfont}{\normalsize\bf} 	%  default
+			\renewcommand{\ptcSfont}{\normalsize\rm} 	%  default
+
+
+		%	=======================================================================================
+		% 	tocloft package
+		% 	
+		% 	------------------------------------------ 목차의 목차 번호와 목차 사이의 간격 조정
+			\usepackage{tocloft}
+
+		% 	------------------------------------------ 목차의 내어쓰기 즉 왼쪽 마진 설정
+			\setlength{\cftsecindent}{2em}			%  section
+
+		% 	------------------------------------------ 목차의 목차 번호와 목차 사이의 간격 조정
+			\setlength{\cftsecnumwidth}{2em}		%  section
+
+
+
+
+		%	=======================================================================================
+		% 	tikz package
+		% 	
+		% 	--------------------------------- 	
+			\usepackage{tikz}%
+			\usetikzlibrary{arrows,positioning,shapes}
+			\usetikzlibrary{mindmap}			
+
+
+
+
+% ------------------------------------------------------------------------------
+% Begin document (Content goes below)
+% ------------------------------------------------------------------------------
+	\begin{document}
+			\dominitoc
+			\doparttoc			
+
+
+
+
+			\title{QGIS}
+			\maketitle
+
+
+			\tableofcontents 		% 목차 출력
+%			\listoffigures 			% 그림 목차 출력
+			\cleardoublepage
+			\listoftables 			% 표 목차 출력
+
+
+
+% 	==============================================================================  chapter  Flow chart
+	\section{설치}
+	\pagestyle{empty}
+
+		%	----------------------------------------------- mind map
+		% 	하향 5개
+		%	----------------------------------------------- mind map
+		\begin{center}
+		\tikz[	mindmap,
+%				minimum size=3cm,
+				text width=6em, 
+				concept color=black!80,
+				level 1/.style={level distance=5.5cm,sibling angle=45},
+				level 2/.style={level distance=5.0cm,sibling angle=45},
+				level 3/.style={level distance=5.0cm,sibling angle=45},
+				level 4/.style={level distance=5.0cm,sibling angle=45},
+				concept/.append style={fill={none}} 
+				]
+				\node 	[concept] 				{프린트}
+						[clockwise from=00, every concept/.style={minimum size=3cm}]
+				child	{					node[concept] 	{LBP1400K}
+						[clockwise from=45]
+					child	{				node[concept] 	{설정}
+						[clockwise from=00]
+						child	{			node[concept] 	{네트워크}
+							child	{		node[concept] 	{chungchul2.4G}} 
+							} 
+						}
+					child	{				node[concept] 	{에러처리}
+						[clockwise from=00]
+						child	{			node[concept] 	{용지 크기가 맞지않음}
+							child	{		node[concept] 	{온라인 누르면 해결}} 
+							} 
+						}
+					child	{				node[concept] 	{토너}
+						[clockwise from=00]
+						child	{			node[concept] 	{용지 크기가 맞지않음}
+							child	{		node[concept] 	{온라인 누르면 해결}} 
+							} 
+						}
+					}
+				child	{	node[concept] 	{이면지 출력용}
+					}
+				child	{	node[concept] 	{칼라 복사기}
+					}
+				child	{	node[concept] 	{송윤석 HP}
+					};
+
+		\end{center}
+
+% 	==============================================================================  chapter  Flow chart
+	\section{좌표계}
+	\pagestyle{empty}
+
+		\begin{tikzpicture}[	mindmap,
+					    every node/.style=concept,
+					    concept color=black!10,
+					    grow cyclic,
+%					    level 1/.append style={level distance=4.0cm,sibling angle=360},
+					    level 1/.append style={level distance=6.0cm},
+					    level 2/.append style={level distance=6.5cm}
+					    level 3/.append style={level distance=6.5cm}
+					    ]
+		\draw	[step=1cm, black!40, very thin] (-16,-10) grid (16,10);
+		\node 	[root concept] 					{좌표계}; % root
+
+
+		\end{tikzpicture}
+
+
+
+
+% 	==============================================================================  chapter  Flow chart
+	\section{거리와 면적 계산하기}
+	\pagestyle{empty}
+
+
+% 	==============================================================================  chapter  Flow chart
+	\section{투영법 확인하고 워프(재투영) 적용하기}
+	\pagestyle{empty}
+
+
+
+% 	==============================================================================  chapter  Flow chart
+	\section{피처 선택하고 편집하기}
+	\pagestyle{empty}
+
+
+
+% 	==============================================================================  chapter  Flow chart
+	\section{벡터 레이어 분석}
+	\pagestyle{empty}
+
+
+% 	==============================================================================  chapter  Flow chart
+	\section{임상도, 항공사진, 지적도}
+	\pagestyle{empty}
+
+
+
+
+% 	==============================================================================  chapter  Flow chart
+	\section{수치지질도}
+	\pagestyle{empty}
+
+
+% 	==============================================================================  chapter  Flow chart
+	\section{피처 추가하기}
+	\pagestyle{empty}
+
+
+% 	==============================================================================  chapter  Flow chart
+	\section{엑샐을 쉐이프 파일로 변환}
+	\pagestyle{empty}
+
+
+% 	==============================================================================  chapter  Flow chart
+	\section{지형분석}
+	\pagestyle{empty}
+
+
+% 	==============================================================================  chapter  Flow chart
+	\section{플러그인}
+	\pagestyle{empty}
+
+
+% 	==============================================================================  chapter  Flow chart
+	\section{시진을 포인트 파일로 변환}
+	\pagestyle{empty}
+
+
+
+
+
+
+
+
+% ------------------------------------------------------------------------------
+% End document
+% ------------------------------------------------------------------------------
+\end{document}
+
+
+
+% =================================================================================================== Part 혼화 재료
+

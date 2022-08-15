@@ -1,0 +1,48 @@
+\documentclass[12pt]{article}
+
+    \usepackage[ngerman]{babel}
+    \usepackage[a4paper, text={16.5cm, 25.2cm}, centering]{geometry}
+    \usepackage[sfdefault]{ClearSans}
+    \usepackage[utf8]{inputenc}
+    \setlength{\parskip}{1.2ex}
+    \setlength{\parindent}{0em}
+
+    \usepackage{tikz}
+    \usetikzlibrary{mindmap}
+    \usepackage[ampersand]{easylist}
+    \begin{document}
+
+
+    \begin{tikzpicture}[mindmap, grow cyclic,
+		every node/.style=concept, 
+		concept color=lime!80, 
+		level 1/.append   style={level distance=5cm, sibling angle=120}, 
+		level 2/.append style={level distance=3 cm, sibling angle=60}, 
+		every annotation/.style={concept color=blue!20, text width={}, align=left}]
+
+    \node{Lehramt}
+child{node{Pädagogik}
+        child{node{Steop}}
+        child{node{Erziehen und Beraten}}
+        child{node{Lehren und Lernen}}
+        child{node{Schul\-architek\-tur}}
+}
+child{node{Sport}
+    child{node{Physio\-logie}}
+    child{node{Anatomie}}
+    child{node{Inklusives}}
+}
+child[level distance=6cm]{node{Französisch}
+    child{node{Sprach\-kurs}}
+    child{node (n2) {Fach\-didaktik}}
+    child{node{Sprach\-wissen\-schaft}} 
+    child{node{Landes\-wissen\-schaft}}
+    child{node{Medien\-wissen\-schaft}}
+    child{node{Literatur\-wissen\-schaft}}
+}
+    ;
+    \node [annotation, right] at (n2.east) {Französich unterrichten lernen \\ Wie gestaltet man Unterricht?} 
+    ;
+    \end{tikzpicture}
+
+    \end{document}
