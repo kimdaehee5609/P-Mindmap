@@ -1,7 +1,7 @@
 # mindmap
 
 
-git vlone https://github.com/kimdaehee5609/P-Mindmap.git
+git clone https://github.com/kimdaehee5609/P-Mindmap.git
 
 
 
